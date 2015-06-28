@@ -11,6 +11,10 @@ RSpec.describe "Building nested API attribute data structure from the DSL" do
           attribute 'name'
           attribute 'author_id', :integer
 
+          collection 'comments' do
+            attribute 'text'
+          end
+
           json 'nested_further' do
             attribute 'deep', example: 'man'
           end
@@ -30,7 +34,7 @@ RSpec.describe "Building nested API attribute data structure from the DSL" do
   describe "the first nested set of attributes" do
     subject(:nested) { attributes.first.attributes }
 
-    its(:size)  { should eq 3 }
+    its(:size)  { should eq 4 }
     its(:first) { should be_string }
 
     describe "2nd level of nesting" do

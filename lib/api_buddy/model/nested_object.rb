@@ -8,6 +8,8 @@ module ApiBuddy
         @name, @attributes, @type = name, [], :object
       end
 
+      def example; end
+
       def inspect
         "#<#{self.class} name: #{name}>"
       end

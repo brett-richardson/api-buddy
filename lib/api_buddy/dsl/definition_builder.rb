@@ -14,6 +14,10 @@ module ApiBuddy
       attr_reader :block, :definition
       delegate :endpoints, to: :definition
 
+      def title(value)
+        definition.title = value
+      end
+
       def endpoint(path, args = {}, &block)
         definition.endpoints << EndpointBuilder.new(path, args, &block).call
       end

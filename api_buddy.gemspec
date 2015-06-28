@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rspec-its'
   s.add_development_dependency 'rspec-nc'
-	s.add_development_dependency 'fuubar'
+  s.add_development_dependency 'fuubar'
   s.add_development_dependency 'pry'
 
   # Guard

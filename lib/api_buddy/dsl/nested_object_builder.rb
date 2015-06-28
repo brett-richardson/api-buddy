@@ -1,8 +1,9 @@
 module ApiBuddy
   module Dsl
     class NestedObjectBuilder < EndpointBuilder
-      def initialize(name, &block)
-        @block, @nested_object = block, Model::NestedObject.new(name)
+      def initialize(name, collection: false, &block)
+        @block, @collection = block, collection
+        @nested_object      = Model::NestedObject.new name
       end
 
       def call

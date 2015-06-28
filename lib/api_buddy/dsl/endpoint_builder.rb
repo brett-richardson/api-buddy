@@ -1,8 +1,6 @@
 module ApiBuddy
   module Dsl
     class EndpointBuilder
-      # attr_reader :http_method
-
       def initialize(path, args = {}, &block)
         @block, @endpoint = block, Model::Endpoint.new(path, args)
       end
@@ -10,10 +8,6 @@ module ApiBuddy
       def call
         instance_exec &block if block.present?
         endpoint
-      end
-
-      def http_method
-        :post
       end
 
       private
@@ -36,6 +30,12 @@ module ApiBuddy
 
       def json(name, &block)
         attributes << NestedObjectBuilder.new(name, &block).call
+      end
+
+      def collection(name, &block)
+        attributes << NestedObjectBuilder.new(
+          name, collection: true, &block
+        ).call
       end
     end
   end

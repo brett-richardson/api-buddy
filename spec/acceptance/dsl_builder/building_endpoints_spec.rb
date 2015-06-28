@@ -1,6 +1,6 @@
 RSpec.describe "Building API endpoint data structure from the DSL" do
-  let(:definition) { ApiBuddy::Dsl.interpret &proc }
-  let(:empty_proc) { Proc.new {} }
+  subject(:definition) { ApiBuddy::Dsl.interpret &proc }
+  let(:proc) { Proc.new { title 'Test title' } }
 
   let :get_proc do
     Proc.new do
@@ -16,9 +16,10 @@ RSpec.describe "Building API endpoint data structure from the DSL" do
 
   # Specs
 
+  its(:title) { should eq 'Test title' }
+
   describe "#endpoints" do
     subject(:endpoints) { definition.endpoints }
-    let(:proc) { empty_proc }
 
     its(:size) { should eq 0 }
 
