@@ -1,20 +1,19 @@
 RSpec.describe "Building API data structure from the DSL" do
-  subject :definition do
-    ApiBuddy::Dsl.interpret do
-      end_point '/api/test_endpoint' do
-        json 'test' do
-          attribute 'name', 'Brett', :string
-        end
-      end
-    end
-  end
+  let(:definition) { ApiBuddy::Dsl.interpret {} }
 
   # Specs
 
   describe "#endpoints" do
     subject { definition.endpoints }
 
-    it { should be_an Array }
-    its(:length) { should eq 1 }
+    its(:size) { should eq 0 }
+
+    context "when #endpoint is called" do
+      let :definition do
+        ApiBuddy::Dsl.interpret { endpoint '/api/test_endpoint' }
+      end
+
+      its(:size) { should eq 1 }
+    end
   end
 end

@@ -6,13 +6,17 @@ module ApiBuddy
       end
 
       def call
-        endpoints << Model::Endpoint.new
+        instance_eval &block
         definition
       end
 
       private
       attr_reader :block, :definition
       delegate :endpoints, to: :definition
+
+      def endpoint(*args)
+        definition.endpoints << Model::Endpoint.new
+      end
     end
   end
 end
