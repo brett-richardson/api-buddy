@@ -2,8 +2,9 @@ module ApiBuddy
   module Dsl
     module_function
 
-    def interpret(file_name)
-      Model::ApiDefinition.new
+    def interpret(&block)
+      builder = Builder.new &block
+      builder.call
     end
   end
 end

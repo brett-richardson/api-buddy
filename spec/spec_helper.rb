@@ -1,4 +1,5 @@
 require 'rspec/its'
+require 'pry'
 require 'api_buddy'
 
 RSpec.configure do |config|

@@ -1,14 +1,14 @@
 module ApiBuddy
   module Model
-    class ApiDefinition
-      attr_reader :endpoints
+    class Endpoint
+      attr_reader :description
 
       def initialize
-        @endpoints = []
+        @description = ''
       end
 
       def inspect
-        "#<#{self.class} endpoints #{endpoints}>"
+        "#<#{self.class} description: #{description}>"
       end
       alias_method :to_s, :inspect
     end
