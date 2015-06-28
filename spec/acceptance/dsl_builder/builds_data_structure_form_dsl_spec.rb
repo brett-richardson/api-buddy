@@ -21,7 +21,8 @@ RSpec.describe "Building API data structure from the DSL" do
       subject { endpoints.first }
       let(:proc) { basic_proc }
 
-      its(:path) { should eq '/api/test_endpoint' }
+      its(:path)        { should eq '/api/test_endpoint' }
+      its(:http_method) { should eq :get }
     end
   end
 end

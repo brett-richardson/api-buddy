@@ -1,10 +1,10 @@
 module ApiBuddy
   module Model
     class Endpoint
-      attr_accessor :description, :path
+      attr_accessor :description, :path, :http_method
 
       def initialize
-        @description = ''
+        @description, @http_method = '', :get
       end
 
       def inspect
