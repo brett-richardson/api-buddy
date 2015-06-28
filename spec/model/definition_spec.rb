@@ -1,5 +1,5 @@
 module ApiBuddy
-  RSpec.describe Model::ApiDefinition do
+  RSpec.describe Model::Definition do
     subject(:instance) { described_class.new }
 
     describe "#endpoints" do

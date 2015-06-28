@@ -1,6 +1,6 @@
 module ApiBuddy
   module Model
-    class ApiDefinition
+    class Definition
       attr_reader :endpoints
 
       def initialize

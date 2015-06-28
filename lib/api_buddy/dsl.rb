@@ -3,8 +3,7 @@ module ApiBuddy
     module_function
 
     def interpret(&block)
-      builder = Builder.new &block
-      builder.call
+      DefinitionBuilder.new(&block).call
     end
   end
 end

@@ -1,8 +1,8 @@
 module ApiBuddy
   module Dsl
-    class Builder
+    class DefinitionBuilder
       def initialize(&block)
-        @block, @definition = block, Model::ApiDefinition.new
+        @block, @definition = block, Model::Definition.new
       end
 
       def call
@@ -14,11 +14,8 @@ module ApiBuddy
       attr_reader :block, :definition
       delegate :endpoints, to: :definition
 
-      def endpoint(path)
-        endpoint = Model::Endpoint.new
-        endpoint.path = path
-
-        definition.endpoints << endpoint
+      def endpoint(path, &block)
+        definition.endpoints << EndpointBuilder.new(path, &block).call
       end
     end
   end

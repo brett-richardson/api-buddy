@@ -1,4 +1,4 @@
-RSpec.describe "Building API data structure from the DSL" do
+RSpec.describe "Building API endpoint data structure from the DSL" do
   let(:definition) { ApiBuddy::Dsl.interpret &proc }
   let(:proc)       { empty_proc }
 

@@ -16,14 +16,6 @@ Once the new features have been implemented, we should be able to use the
 exact same DSL used for stubbing the endpoints, to generate both documentation
 and tests.
 
-## Plan
-
-Pain (JSON API problems)
-Readme
-Integration specs
-Unit specs
-Feature
-
 ## Project Structure
 
 ### 1) Builder DSL?
@@ -39,10 +31,10 @@ endpoint '/api/posts', method: :post do
   description 'Creates a post in the database'
 
   json 'post' do
-    attribute 'id', 1, type: :integer
-    attribute 'title', 'Ruby is Great', type: :string
-    attribute 'author_id', 2, type: :integer
-    attribute 'author_name', 'Joe Bloggs', type: :string
+    attribute 'id', :integer
+    attribute 'title', :string, example: 'Ruby is Great'
+    attribute 'author_id', :integer, example: 2
+    attribute 'author_name', :string, example: 'Joe Bloggs'
   end
 end
 ```
