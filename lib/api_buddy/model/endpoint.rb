@@ -1,7 +1,7 @@
 module ApiBuddy
   module Model
     class Endpoint
-      attr_reader :description
+      attr_accessor :description, :path
 
       def initialize
         @description = ''

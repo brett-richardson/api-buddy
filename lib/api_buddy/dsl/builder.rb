@@ -14,8 +14,11 @@ module ApiBuddy
       attr_reader :block, :definition
       delegate :endpoints, to: :definition
 
-      def endpoint(*args)
-        definition.endpoints << Model::Endpoint.new
+      def endpoint(path)
+        endpoint = Model::Endpoint.new
+        endpoint.path = path
+
+        definition.endpoints << endpoint
       end
     end
   end
