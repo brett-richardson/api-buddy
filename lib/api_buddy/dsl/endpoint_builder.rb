@@ -16,6 +16,10 @@ module ApiBuddy
       attr_accessor :endpoint
       delegate :attributes, to: :endpoint
 
+      def description(text)
+        endpoint.description = text
+      end
+
       def attribute(name, type = :string, example: nil)
         attribute = Model::Attribute.new name
 
