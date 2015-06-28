@@ -1,14 +1,19 @@
 module ApiBuddy
   module Dsl
     class EndpointBuilder
-      def initialize(path, &block)
-        @path, @block, @endpoint = path, block, Model::Endpoint.new
+      # attr_reader :http_method
+
+      def initialize(path, args = {}, &block)
+        @block, @endpoint = block, Model::Endpoint.new(path, args)
       end
 
       def call
-        endpoint.path = path
         instance_exec &block if block.present?
         endpoint
+      end
+
+      def http_method
+        :post
       end
 
       private

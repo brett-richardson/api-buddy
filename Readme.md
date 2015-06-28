@@ -18,7 +18,7 @@ and tests.
 
 ## Project Structure
 
-### 1) Builder DSL?
+### 1) Builder DSL
 
 Take a DSL for defining the characteristics
 of a JSON API and build data structure to represent

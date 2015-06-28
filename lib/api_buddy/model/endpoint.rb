@@ -3,8 +3,10 @@ module ApiBuddy
     class Endpoint
       attr_accessor :description, :path, :http_method, :attributes
 
-      def initialize
-        @description, @http_method, @attributes = '', :get, []
+      def initialize(path, args = {})
+        @path, @description, @http_method, @attributes = path, '', :get, []
+        options = args.reverse_merge(http_method: :get)
+        @http_method = options.fetch :http_method
       end
 
       def inspect
