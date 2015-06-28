@@ -2,7 +2,9 @@ module ApiBuddy
   module Documenter
     class EndpointDocumenter < BaseDocumenter
       def to_md
-        lines(title, newline, description, newline, example)
+        lines(
+          title, blank_line, description, blank_line, example
+        )
       end
 
       private
@@ -14,9 +16,9 @@ module ApiBuddy
       def example
         [
           "```javascript",
-          "  {",
+          "{",
           attributes_example_content,
-          "  }",
+          "}",
           "```"
         ]
       end

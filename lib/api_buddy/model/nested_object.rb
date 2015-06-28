@@ -8,7 +8,7 @@ module ApiBuddy
         @name, @attributes, @type = name, [], :object
       end
 
-      def example; end
+      alias_method :example, :attributes
 
       def inspect
         "#<#{self.class} name: #{name}>"

@@ -1,6 +1,8 @@
 require 'rspec/its'
 require 'pry'
+
 require 'api_buddy'
+require 'support/documentation_helpers'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

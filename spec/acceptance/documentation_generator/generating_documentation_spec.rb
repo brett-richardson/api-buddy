@@ -1,4 +1,6 @@
 RSpec.describe "Generating documentation from a Model::Definition object" do
+  include DocumentHelpers
+
   subject { ApiBuddy::Documenter.build definition }
 
   let :definition do
@@ -19,8 +21,7 @@ RSpec.describe "Generating documentation from a Model::Definition object" do
     should include '```javascript'
   end
 
-  pending "generates exactly the correct markdown from the definition" do
-    expected = File.open('./spec/fixtures/posts_endpoints.md').join
-    should eq expected
+  it "generates exactly the correct markdown from the definition" do
+    expect_to_equal_file_contents './spec/fixtures/posts_endpoints.md', subject
   end
 end

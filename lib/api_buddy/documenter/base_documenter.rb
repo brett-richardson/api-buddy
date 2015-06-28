@@ -8,15 +8,19 @@ module ApiBuddy
       private
 
       def lines(*args)
-        args.join newline
+        args.join "\n"
       end
 
-      def newline
-        "\n"
+      def blank_line
+        ''
       end
 
       def indent(amount)
         "  " * amount
+      end
+
+      def horizontal_seperator
+        "\n\n- - - - -\n\n"
       end
     end
   end
