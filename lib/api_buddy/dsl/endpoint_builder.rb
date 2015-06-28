@@ -24,6 +24,10 @@ module ApiBuddy
 
         attributes << attribute
       end
+
+      def json(name, &block)
+        attributes << NestedObjectBuilder.new(name, &block).call
+      end
     end
   end
 end
